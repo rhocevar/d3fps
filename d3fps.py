@@ -58,15 +58,14 @@ def analyze_fps_from_logs(act, calc_type, data_dir):
     print(f"{len(fps_samples)} fps samples found for act '{act}'")
 
     # 4. Perform calculation based on 'calc_type' and print result
-    match calc_type:
-        case "minmax":
-            result = calculate_min_max_fps(fps_samples)
-            print(f"Min FPS: {result[0]}, Max FPS: {result[1]}")
-        case "avg":
-            result = calculate_avg_fps(fps_samples)
-            print(f"Average FPS: {result}")
-        case _:
-            raise Exception(f"Unknown calc_type '{calc_type}'")
+    if calc_type == "minmax":
+        result = calculate_min_max_fps(fps_samples)
+        print(f"Min FPS: {result[0]}, Max FPS: {result[1]}")
+    elif calc_type == "avg":
+        result = calculate_avg_fps(fps_samples)
+        print(f"Average FPS: {result}")
+    else:
+        raise Exception(f"Unknown calc_type '{calc_type}'")
 
 if __name__ == '__main__':
     print("D3 FPS (Frames Per Second) Analysis")
