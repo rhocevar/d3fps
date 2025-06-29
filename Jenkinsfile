@@ -10,12 +10,12 @@ pipeline {
     stages {
         stage('Version') {
             steps {
-                sh 'phython3 --version'
+                sh 'python3 --version'
             }
         }
         stage('FPS Analysis') {
             steps {
-                sh 'phython3 d3fps.py ${params.Act} ${params.Calculation_type} ${params.Logs_directory}'
+                sh 'python3 d3fps.py ${params.Act} ${params.Calculation_type} ${params.Logs_directory}'
             }
         }
     }
