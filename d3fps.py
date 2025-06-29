@@ -2,7 +2,7 @@ import sys
 import os
 import json
 
-def read_data_for_act(dir_path):
+def read_json_data_from_directory(dir_path):
     data_list = []
     for filename in os.listdir(dir_path):
         # This condition can be optimized to only consider files of a specific act based on the file name
@@ -50,7 +50,7 @@ def analyze_fps_from_logs(act, calc_type, data_dir):
     print(f"Arguments: act = {act}, calc_type = {calc_type}, data_dir = {data_dir}")
 
     # 2. Read JSON files contained in data_dir
-    fps_logs = read_data_for_act(data_dir)
+    fps_logs = read_json_data_from_directory(data_dir)
     print(f"{len(fps_logs)} log files found in '{data_dir}'")
 
     # 3. Read list of FPS samples for act
